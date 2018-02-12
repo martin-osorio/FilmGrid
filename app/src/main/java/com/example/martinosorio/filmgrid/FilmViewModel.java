@@ -1,5 +1,7 @@
 package com.example.martinosorio.filmgrid;
 
+import android.widget.ImageView;
+
 import com.example.martinosorio.filmgrid.model.Film;
 
 /**
@@ -7,9 +9,17 @@ import com.example.martinosorio.filmgrid.model.Film;
  */
 
 public class FilmViewModel {
+    FilmViewHolder holder;
     Film film;
 
-    public FilmViewModel(Film film) {
+    public FilmViewModel(FilmViewHolder holder, Film film) {
+        this.holder = holder;
         this.film = film;
+
+        downloadImage();
+    }
+
+    private void downloadImage(){//TODO
+        new ImageDownloader(holder.imageView).execute("http://java.sogeti.nl/JavaBlog/wp-content/uploads/2009/04/android_icon_256.png");
     }
 }
