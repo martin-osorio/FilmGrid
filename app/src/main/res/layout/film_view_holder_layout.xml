@@ -45,7 +45,15 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/film_textview"
                 android:layout_centerHorizontal="true"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@mipmap/ic_launcher"
+                android:visibility="@{viewModel.getImageVisibility}" />
+
+            <ProgressBar
+                android:id="@+id/card_progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="@{viewModel.getProgressVisibility}" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 </layout>

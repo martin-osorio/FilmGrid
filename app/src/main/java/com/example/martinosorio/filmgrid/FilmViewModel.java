@@ -2,6 +2,7 @@ package com.example.martinosorio.filmgrid;
 
 import android.databinding.Bindable;
 import android.databinding.Observable;
+import android.view.View;
 
 import com.example.martinosorio.filmgrid.model.Film;
 
@@ -14,12 +15,16 @@ public class FilmViewModel implements Observable {
     private Film film;
     private String title;
     private String url;
+    boolean progressVisibility;
+    boolean imageViewVisibility;
 
     public FilmViewModel(FilmViewHolder holder, Film film) {
         this.holder = holder;
         this.film = film;
-        this.title = film.getTitle();
+        setTitle(film.getTitle());
         //this.url = film.getImages().getImage().get(0).getSrc();//TODO
+        setImageViewVisibility(true);
+        setProgressVisibility(false);//TODO
 
         new ImageDownloader(holder.getImageView()).execute("https://www.google.com/images/srpr/logo11w.png");//TODO
     }
@@ -29,8 +34,38 @@ public class FilmViewModel implements Observable {
         return title;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String getUrl() {
         return url;
+    }
+
+    public boolean isProgressVisibility() {
+        return progressVisibility;
+    }
+
+    @Bindable
+    public int getProgressVisibility(){
+        return isProgressVisibility() ? View.VISIBLE : View.GONE;
+    }
+
+    public void setProgressVisibility(boolean progressVisibility) {
+        this.progressVisibility = progressVisibility;
+    }
+
+    public boolean isImageViewVisibility() {
+        return imageViewVisibility;
+    }
+
+    @Bindable
+    public int getImageVisibility(){
+        return isImageViewVisibility() ? View.VISIBLE : View.GONE;
+    }
+
+    public void setImageViewVisibility(boolean imageViewVisibility) {
+        this.imageViewVisibility = imageViewVisibility;
     }
 
     @Override
