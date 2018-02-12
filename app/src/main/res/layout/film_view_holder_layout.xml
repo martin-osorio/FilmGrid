@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.martinosorio.filmgrid.FilmGridActivity">
 
@@ -11,25 +12,40 @@
             type="com.example.martinosorio.filmgrid.FilmViewModel" />
     </data>
 
-    <RelativeLayout
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        card_view:cardCornerRadius="4dp">
 
-        <TextView
-            android:id="@+id/film_textview"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:gravity="center_horizontal"
-            android:hint="Film" />
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
 
-        <ImageView
-            android:src="@mipmap/ic_launcher"
-            android:id="@+id/film_imageview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/film_textview"
-            android:layout_centerHorizontal="true" />
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/film_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal"
+                android:hint="Film" />
+
+            <ImageView
+                android:id="@+id/film_imageview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/film_textview"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/ic_launcher" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
 </layout>
