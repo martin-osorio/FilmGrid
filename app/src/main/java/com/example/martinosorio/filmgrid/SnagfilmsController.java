@@ -17,29 +17,28 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class SnagfilmsController implements Callback<Films> {
-    static final String BASE_URL = "http://www.snagfilms.com/apis/";
+    private static final String BASE_URL = "http://www.snagfilms.com/apis/";
+    private FilmGridActivityViewModel viewModel;
 
-    public void start() {
-        Gson gson = new GsonBuilder()
-                .setLenient()
-                .create();
+    public void start(FilmGridActivityViewModel viewModel) {
+        this.viewModel = viewModel;
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .build();
+        Gson gson = new GsonBuilder().setLenient().create();
+
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create(gson)).build();
 
         SnagfilmsAPI snagfilmsAPI = retrofit.create(SnagfilmsAPI.class);
 
         Call<Films> call = snagfilmsAPI.getFilms();
         call.enqueue(this);
-
     }
 
     @Override
     public void onResponse(@NonNull Call<Films> call, @NonNull Response<Films> response) {
         if(response.isSuccessful()) {
             Films films = response.body();
+            viewModel.onFilmsFetched(films);
         } else {
             System.out.println(response.errorBody());
         }

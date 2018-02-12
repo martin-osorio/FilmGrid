@@ -13,7 +13,7 @@ import java.net.URL;
  */
 
 public class ImageDownloader extends AsyncTask<String,Void,Bitmap> {
-    ImageView imageView;//TODO
+    private ImageView imageView;//TODO
 
     ImageDownloader(ImageView imageView){
         this.imageView = imageView;
