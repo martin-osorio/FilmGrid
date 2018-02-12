@@ -2,8 +2,7 @@ package com.example.martinosorio.filmgrid;
 
 import android.support.annotation.NonNull;
 
-import com.example.martinosorio.filmgrid.model.Example;
-import com.example.martinosorio.filmgrid.model.Films;
+import com.example.martinosorio.filmgrid.model.SnagfilmsReply;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -17,7 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by Martin on 2/12/2018.
  */
 
-public class SnagfilmsController implements Callback<Example> {
+public class SnagfilmsController implements Callback<SnagfilmsReply> {
     private static final String BASE_URL = "http://www.snagfilms.com/apis/";
     private FilmGridActivityViewModel viewModel;
 
@@ -31,14 +30,14 @@ public class SnagfilmsController implements Callback<Example> {
 
         SnagfilmsAPI snagfilmsAPI = retrofit.create(SnagfilmsAPI.class);
 
-        Call<Example> call = snagfilmsAPI.getFilms();
+        Call<SnagfilmsReply> call = snagfilmsAPI.getFilms();
         call.enqueue(this);
     }
 
     @Override
-    public void onResponse(@NonNull Call<Example> call, @NonNull Response<Example> response) {
+    public void onResponse(@NonNull Call<SnagfilmsReply> call, @NonNull Response<SnagfilmsReply> response) {
         if(response.isSuccessful()) {
-            Example films = response.body();
+            SnagfilmsReply films = response.body();
             viewModel.onFilmsFetched(films.getFilms());
         } else {
             System.out.println(response.errorBody());
@@ -46,7 +45,7 @@ public class SnagfilmsController implements Callback<Example> {
     }
 
     @Override
-    public void onFailure(@NonNull Call<Example> call, @NonNull Throwable t) {
+    public void onFailure(@NonNull Call<SnagfilmsReply> call, @NonNull Throwable t) {
         t.printStackTrace();
     }
 }

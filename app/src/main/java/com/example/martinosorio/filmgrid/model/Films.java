@@ -1,60 +1,34 @@
-
 package com.example.martinosorio.filmgrid.model;
 
 import java.util.List;
 
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Films {
 
-    @SerializedName("categories")
-    @Expose
-    private Object categories;
     @SerializedName("film")
-    @Expose
     private List<Film> films = null;
+
     @SerializedName("total")
-    @Expose
     private Integer total;
+
     @SerializedName("previosOffset")
-    @Expose
     private Object previosOffset;
+
     @SerializedName("nextOffset")
-    @Expose
     private Integer nextOffset;
+
     @SerializedName("pageIndex")
-    @Expose
     private Integer pageIndex;
+
     @SerializedName("pageTotal")
-    @Expose
     private Integer pageTotal;
-    @SerializedName("dynamicLead")
-    @Expose
-    private Object dynamicLead;
-    @SerializedName("version")
-    @Expose
-    private Object version;
-    @SerializedName("versions")
-    @Expose
-    private Object versions;
+
     @SerializedName("id")
-    @Expose
     private Object id;
+
     @SerializedName("title")
-    @Expose
     private Object title;
-    @SerializedName("search_string")
-    @Expose
-    private Object searchString;
-
-    public Object getCategories() {
-        return categories;
-    }
-
-    public void setCategories(Object categories) {
-        this.categories = categories;
-    }
 
     public List<Film> getFilms() {
         return films;
@@ -104,30 +78,6 @@ public class Films {
         this.pageTotal = pageTotal;
     }
 
-    public Object getDynamicLead() {
-        return dynamicLead;
-    }
-
-    public void setDynamicLead(Object dynamicLead) {
-        this.dynamicLead = dynamicLead;
-    }
-
-    public Object getVersion() {
-        return version;
-    }
-
-    public void setVersion(Object version) {
-        this.version = version;
-    }
-
-    public Object getVersions() {
-        return versions;
-    }
-
-    public void setVersions(Object versions) {
-        this.versions = versions;
-    }
-
     public Object getId() {
         return id;
     }
@@ -143,13 +93,4 @@ public class Films {
     public void setTitle(Object title) {
         this.title = title;
     }
-
-    public Object getSearchString() {
-        return searchString;
-    }
-
-    public void setSearchString(Object searchString) {
-        this.searchString = searchString;
-    }
-
 }

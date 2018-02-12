@@ -1,13 +1,10 @@
-
 package com.example.martinosorio.filmgrid.model;
 
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Example {
+public class SnagfilmsReply {
 
     @SerializedName("films")
-    @Expose
     private Films films;
 
     public Films getFilms() {

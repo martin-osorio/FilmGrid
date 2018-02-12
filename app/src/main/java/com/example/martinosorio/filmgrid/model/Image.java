@@ -1,25 +1,18 @@
-
 package com.example.martinosorio.filmgrid.model;
 
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Image {
 
     @SerializedName("height")
-    @Expose
     private Object height;
     @SerializedName("src")
-    @Expose
     private String src;
     @SerializedName("type")
-    @Expose
     private String type;
     @SerializedName("width")
-    @Expose
     private Object width;
     @SerializedName("rokuSrc")
-    @Expose
     private Object rokuSrc;
 
     public Object getHeight() {
