@@ -5,4 +5,13 @@ package com.example.martinosorio.filmgrid;
  */
 
 public class FilmGridActivityViewModel {
+
+    public FilmGridActivityViewModel() {
+        startController();
+    }
+
+    private void startController(){
+        SnagfilmsController controller = new SnagfilmsController();
+        controller.start();
+    }
 }

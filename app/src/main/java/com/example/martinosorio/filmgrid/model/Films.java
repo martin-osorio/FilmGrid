@@ -13,7 +13,7 @@ public class Films {
     private Object categories;
     @SerializedName("film")
     @Expose
-    private List<Film> film = null;
+    private List<Film> films = null;
     @SerializedName("total")
     @Expose
     private Integer total;
@@ -56,12 +56,12 @@ public class Films {
         this.categories = categories;
     }
 
-    public List<Film> getFilm() {
-        return film;
+    public List<Film> getFilms() {
+        return films;
     }
 
-    public void setFilm(List<Film> film) {
-        this.film = film;
+    public void setFilms(List<Film> films) {
+        this.films = films;
     }
 
     public Integer getTotal() {
