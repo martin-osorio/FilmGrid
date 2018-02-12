@@ -1,7 +1,11 @@
 package com.example.martinosorio.filmgrid;
 
+import android.app.Activity;
+import android.content.Context;
 import android.databinding.Bindable;
 import android.databinding.Observable;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 /**
@@ -9,13 +13,17 @@ import android.view.View;
  */
 
 public class FilmGridActivityViewModel implements Observable {
+    Context context;
+    FilmGridRecyclerViewAdapter adapter;
     boolean progressVisibility;
     boolean recyclerViewVisibility;
 
-    public FilmGridActivityViewModel() {
+    public FilmGridActivityViewModel(Context context) {
+        this.context = context;
         setProgressVisibility(true);
         setRecyclerViewVisibility(false);
         startController();
+        setupRecyclerView();
     }
 
     private void startController(){
@@ -57,5 +65,13 @@ public class FilmGridActivityViewModel implements Observable {
     @Override
     public void removeOnPropertyChangedCallback(OnPropertyChangedCallback onPropertyChangedCallback) {
         //TODO
+    }
+
+    private void setupRecyclerView(){//TODO
+        RecyclerView recyclerView = (RecyclerView) ((Activity) context).findViewById(R.id.recyclerView);
+        int numberOfColumns = 2;
+        recyclerView.setLayoutManager(new GridLayoutManager(context, numberOfColumns));
+        adapter = new FilmGridRecyclerViewAdapter(context, null);//TODO
+        recyclerView.setAdapter(adapter);
     }
 }

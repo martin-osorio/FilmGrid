@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.martinosorio.filmgrid.FilmGridActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.martinosorio.filmgrid.FilmViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/film_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/film_imageview"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:hint="Film" />
+
+        <ImageView
+            android:id="@+id/film_imageview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@id/film_textview"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/ic_launcher" />
+    </RelativeLayout>
+</layout>

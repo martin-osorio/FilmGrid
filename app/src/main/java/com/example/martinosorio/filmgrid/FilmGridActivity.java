@@ -12,7 +12,7 @@ public class FilmGridActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FilmGridActivityLayoutBinding binding = DataBindingUtil.setContentView(this, R.layout.film_grid_activity_layout);
-        FilmGridActivityViewModel viewModel = new FilmGridActivityViewModel();
+        FilmGridActivityViewModel viewModel = new FilmGridActivityViewModel(this);
         binding.setViewModel(viewModel);
     }
 }
