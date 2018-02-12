@@ -8,6 +8,12 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.example.martinosorio.filmgrid.model.Film;
+import com.example.martinosorio.filmgrid.model.Films;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Martin on 2/12/2018.
  */
@@ -20,10 +26,12 @@ public class FilmGridActivityViewModel implements Observable {
 
     public FilmGridActivityViewModel(Context context) {
         this.context = context;
-        setProgressVisibility(true);
-        setRecyclerViewVisibility(false);
-        startController();
-        setupRecyclerView();
+        setProgressVisibility(false);
+        setRecyclerViewVisibility(true);
+
+        startController();//TODO
+
+        setupRecyclerView();//TODO
     }
 
     private void startController(){
@@ -71,7 +79,17 @@ public class FilmGridActivityViewModel implements Observable {
         RecyclerView recyclerView = (RecyclerView) ((Activity) context).findViewById(R.id.recyclerView);
         int numberOfColumns = 2;
         recyclerView.setLayoutManager(new GridLayoutManager(context, numberOfColumns));
-        adapter = new FilmGridRecyclerViewAdapter(context, null);//TODO
+
+        Films films = new Films();
+        List<Film> filmList = new ArrayList<Film>();
+        filmList.add(new Film());
+        filmList.add(new Film());
+        filmList.add(new Film());
+        filmList.add(new Film());
+        filmList.add(new Film());
+        films.setFilms(filmList);
+
+        adapter = new FilmGridRecyclerViewAdapter(context, films);//TODO
         recyclerView.setAdapter(adapter);
     }
 }

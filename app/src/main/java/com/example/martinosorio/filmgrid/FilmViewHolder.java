@@ -16,11 +16,6 @@ public class FilmViewHolder extends RecyclerView.ViewHolder {
     ImageView imageView;
     TextView textView;
 
-    /*public FilmViewHolder(View itemView) {
-        super(itemView);
-        imageView = (ImageView) itemView.findViewById(R.id.film_imageview);
-        textView = (TextView) itemView.findViewById(R.id.film_textview);
-    }*/
     public FilmViewHolder(FilmViewHolderLayoutBinding binding) {
         super(binding.getRoot());
         this.binding = binding;

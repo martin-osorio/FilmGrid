@@ -39,6 +39,6 @@ public class FilmGridRecyclerViewAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return films.getTotal();//TODO
+        return films.getFilms().size();//TODO
     }
 }
