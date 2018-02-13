@@ -19,11 +19,11 @@ import org.greenrobot.eventbus.ThreadMode;
 
 public class FilmGridActivityViewModel extends BaseObservable {
     private static int numberOfColumns = 2;
+
     private Context context;
-    private FilmGridRecyclerViewAdapter adapter;
+    private Films films;
     private boolean progressVisibility;
     private boolean recyclerViewVisibility;
-    private Films films;
 
     FilmGridActivityViewModel(Context context) {
         EventBus.getDefault().register(this);
@@ -58,8 +58,8 @@ public class FilmGridActivityViewModel extends BaseObservable {
         notifyPropertyChanged(BR.recyclerViewVisibility);
     }
 
-    private void setupRecyclerView(){
-        adapter = new FilmGridRecyclerViewAdapter(context, films);
+    private void setupRecyclerView() {
+        FilmGridRecyclerViewAdapter adapter = new FilmGridRecyclerViewAdapter(context, films);
 
         RecyclerView recyclerView = ((Activity) context).findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(context, numberOfColumns));
@@ -71,7 +71,7 @@ public class FilmGridActivityViewModel extends BaseObservable {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onFilmsDownloadedEvent(FilmsDownloadedEvent event) {
-        this.films = event.films;
+        this.films = event.getFilms();
         setupRecyclerView();
     }
 }

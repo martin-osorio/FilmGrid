@@ -45,8 +45,8 @@ public class FilmViewModel extends BaseObservable {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onImageDownloadedEvent(ImageDownloadedEvent event) {
-        if (this.id == event.id) {
-            setImage(event.image);
+        if (this.id == event.getId()) {
+            setImage(event.getImage());
             setImageVisible(true);
             setProgressVisible(false);
         }
@@ -85,7 +85,7 @@ public class FilmViewModel extends BaseObservable {
     }
 
     @Bindable
-    public void setProgressVisible(boolean progressVisible) {
+    private void setProgressVisible(boolean progressVisible) {
         this.progressVisible = progressVisible;
         notifyPropertyChanged(BR.progressVisible);
     }
@@ -96,7 +96,7 @@ public class FilmViewModel extends BaseObservable {
     }
 
     @Bindable
-    public void setImageVisible(boolean imageVisible) {
+    private void setImageVisible(boolean imageVisible) {
         this.imageVisible = imageVisible;
         notifyPropertyChanged(BR.imageVisible);
     }

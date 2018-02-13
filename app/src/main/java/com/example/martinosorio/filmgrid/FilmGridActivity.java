@@ -6,6 +6,10 @@ import android.os.Bundle;
 
 import com.example.martinosorio.filmgrid.databinding.FilmGridActivityLayoutBinding;
 
+/**
+ * Created by Martin on 2/12/2018.
+ */
+
 public class FilmGridActivity extends AppCompatActivity {
 
     @Override

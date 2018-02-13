@@ -4,6 +4,10 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Created by Martin on 2/12/2018.
+ */
+
 public class Images {
 
     @SerializedName("image")
@@ -12,9 +16,4 @@ public class Images {
     public List<Image> getImage() {
         return image;
     }
-
-    public void setImage(List<Image> image) {
-        this.image = image;
-    }
-
 }

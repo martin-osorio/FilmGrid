@@ -7,11 +7,19 @@ import android.graphics.Bitmap;
  */
 
 class ImageDownloadedEvent {
-    int id;
-    Bitmap image;
+    private int id;
+    private Bitmap image;
 
     ImageDownloadedEvent(int id, Bitmap image) {
         this.id = id;
         this.image = image;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public Bitmap getImage() {
+        return image;
     }
 }

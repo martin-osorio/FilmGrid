@@ -7,9 +7,13 @@ import com.example.martinosorio.filmgrid.model.Films;
  */
 
 class FilmsDownloadedEvent {
-    Films films;
+    private Films films;
 
     FilmsDownloadedEvent(Films films) {
         this.films = films;
+    }
+
+    public Films getFilms() {
+        return films;
     }
 }
