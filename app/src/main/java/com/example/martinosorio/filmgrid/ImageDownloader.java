@@ -3,7 +3,8 @@ package com.example.martinosorio.filmgrid;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
-import android.widget.ImageView;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -13,10 +14,10 @@ import java.net.URL;
  */
 
 public class ImageDownloader extends AsyncTask<String,Void,Bitmap> {
-    private ImageView imageView;//TODO
+    private int position;
 
-    ImageDownloader(ImageView imageView){
-        this.imageView = imageView;
+    ImageDownloader(int position) {
+        this.position = position;
     }
 
     protected Bitmap doInBackground(String...urls){
@@ -32,6 +33,6 @@ public class ImageDownloader extends AsyncTask<String,Void,Bitmap> {
     }
 
     protected void onPostExecute(Bitmap result){
-        imageView.setImageBitmap(result);
+        EventBus.getDefault().post(new ImageDownloadedEvent(position, result));
     }
 }

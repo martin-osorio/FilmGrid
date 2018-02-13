@@ -16,6 +16,7 @@ import com.example.martinosorio.filmgrid.model.Films;
 public class FilmGridRecyclerViewAdapter extends RecyclerView.Adapter {
     private LayoutInflater layoutInflater;
     private Films films;
+    int nextID = 0;
 
     FilmGridRecyclerViewAdapter(Context context, Films films) {
         this.films = films;
@@ -30,7 +31,7 @@ public class FilmGridRecyclerViewAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        FilmViewModel viewModel = new FilmViewModel((FilmViewHolder) holder, films.getFilms().get(position));
+        FilmViewModel viewModel = new FilmViewModel((FilmViewHolder) holder, films.getFilms().get(position), nextID++);
         ((FilmViewHolder) holder).bind(viewModel);
     }
 
