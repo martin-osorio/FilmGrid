@@ -20,16 +20,12 @@ public class SnagfilmsController implements Callback<SnagfilmsReply> {
     private static final String BASE_URL = "http://www.snagfilms.com/apis/";
     private FilmGridActivityViewModel viewModel;
 
-    public void start(FilmGridActivityViewModel viewModel) {
+    void start(FilmGridActivityViewModel viewModel) {
         this.viewModel = viewModel;
 
         Gson gson = new GsonBuilder().setLenient().create();
-
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create(gson)).build();
-
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create(gson)).build();
         SnagfilmsAPI snagfilmsAPI = retrofit.create(SnagfilmsAPI.class);
-
         Call<SnagfilmsReply> call = snagfilmsAPI.getFilms();
         call.enqueue(this);
     }
@@ -37,8 +33,10 @@ public class SnagfilmsController implements Callback<SnagfilmsReply> {
     @Override
     public void onResponse(@NonNull Call<SnagfilmsReply> call, @NonNull Response<SnagfilmsReply> response) {
         if(response.isSuccessful()) {
-            SnagfilmsReply films = response.body();
-            viewModel.onFilmsFetched(films.getFilms());
+            SnagfilmsReply reply = response.body();
+            if (reply != null) {
+                viewModel.onFilmsFetched(reply.getFilms());
+            }
         } else {
             System.out.println(response.errorBody());
         }

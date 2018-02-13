@@ -4,7 +4,6 @@ import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.martinosorio.filmgrid.databinding.FilmViewHolderLayoutBinding;
@@ -15,12 +14,10 @@ import com.example.martinosorio.filmgrid.model.Films;
  */
 
 public class FilmGridRecyclerViewAdapter extends RecyclerView.Adapter {
-    LayoutInflater layoutInflater;
-    Context context;
-    Films films;
+    private LayoutInflater layoutInflater;
+    private Films films;
 
-    public FilmGridRecyclerViewAdapter(Context context, Films films) {
-        this.context = context;
+    FilmGridRecyclerViewAdapter(Context context, Films films) {
         this.films = films;
         layoutInflater = LayoutInflater.from(context);
     }

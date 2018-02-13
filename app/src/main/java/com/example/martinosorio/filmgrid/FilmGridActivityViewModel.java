@@ -19,6 +19,7 @@ import java.util.List;
  */
 
 public class FilmGridActivityViewModel implements Observable {
+    static int numberOfColumns = 2;
     Context context;
     FilmGridRecyclerViewAdapter adapter;
     boolean progressVisibility;
@@ -30,10 +31,6 @@ public class FilmGridActivityViewModel implements Observable {
         setProgressVisibility(false);
         setRecyclerViewVisibility(true);
 
-        startController();//TODO
-    }
-
-    private void startController(){
         SnagfilmsController controller = new SnagfilmsController();
         controller.start(this);
     }
@@ -80,21 +77,11 @@ public class FilmGridActivityViewModel implements Observable {
         //TODO
     }
 
-    private void setupRecyclerView(){//TODO
-        RecyclerView recyclerView = ((Activity) context).findViewById(R.id.recyclerView);
-        int numberOfColumns = 2;
-        recyclerView.setLayoutManager(new GridLayoutManager(context, numberOfColumns));
-
-        Films films = new Films();
-        List<Film> filmList = new ArrayList<>();
-        filmList.add(new Film());
-        filmList.add(new Film());
-        filmList.add(new Film());
-        filmList.add(new Film());
-        filmList.add(new Film());
-        films.setFilms(filmList);
-
+    private void setupRecyclerView(){
         adapter = new FilmGridRecyclerViewAdapter(context, films);
+
+        RecyclerView recyclerView = ((Activity) context).findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new GridLayoutManager(context, numberOfColumns));
         recyclerView.setAdapter(adapter);
 
         setRecyclerViewVisibility(true);
@@ -103,6 +90,6 @@ public class FilmGridActivityViewModel implements Observable {
 
     public void onFilmsFetched(Films films){
         this.films = films;
-        setupRecyclerView();//TODO
+        setupRecyclerView();
     }
 }

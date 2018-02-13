@@ -22,11 +22,12 @@ public class FilmViewModel implements Observable {
         this.holder = holder;
         this.film = film;
         setTitle(film.getTitle());
-        //this.url = film.getImages().getImage().get(0).getSrc();//TODO
+        setUrl(film.getImages().getImage().get(0).getSrc());
+
         setImageViewVisibility(true);
         setProgressVisibility(false);//TODO
 
-        new ImageDownloader(holder.getImageView()).execute("https://www.google.com/images/srpr/logo11w.png");//TODO
+        new ImageDownloader(holder.getImageView()).execute(getUrl());
     }
 
     @Bindable
@@ -40,6 +41,10 @@ public class FilmViewModel implements Observable {
 
     public String getUrl() {
         return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public boolean isProgressVisibility() {
@@ -70,11 +75,11 @@ public class FilmViewModel implements Observable {
 
     @Override
     public void addOnPropertyChangedCallback(OnPropertyChangedCallback onPropertyChangedCallback) {
-
+        //TODO
     }
 
     @Override
     public void removeOnPropertyChangedCallback(OnPropertyChangedCallback onPropertyChangedCallback) {
-
+        //TODO
     }
 }
