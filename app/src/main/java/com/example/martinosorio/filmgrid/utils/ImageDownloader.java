@@ -1,8 +1,10 @@
-package com.example.martinosorio.filmgrid;
+package com.example.martinosorio.filmgrid.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+
+import com.example.martinosorio.filmgrid.event.ImageDownloadedEvent;
 
 import org.greenrobot.eventbus.EventBus;
 

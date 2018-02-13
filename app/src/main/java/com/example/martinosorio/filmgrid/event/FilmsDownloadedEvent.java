@@ -1,4 +1,4 @@
-package com.example.martinosorio.filmgrid;
+package com.example.martinosorio.filmgrid.event;
 
 import com.example.martinosorio.filmgrid.model.Films;
 
@@ -9,7 +9,7 @@ import com.example.martinosorio.filmgrid.model.Films;
 public class FilmsDownloadedEvent {
     private Films films;
 
-    FilmsDownloadedEvent(Films films) {
+    public FilmsDownloadedEvent(Films films) {
         this.films = films;
     }
 

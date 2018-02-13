@@ -1,7 +1,8 @@
-package com.example.martinosorio.filmgrid;
+package com.example.martinosorio.filmgrid.data;
 
 import android.support.annotation.NonNull;
 
+import com.example.martinosorio.filmgrid.event.FilmsDownloadedEvent;
 import com.example.martinosorio.filmgrid.model.SnagfilmsReply;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

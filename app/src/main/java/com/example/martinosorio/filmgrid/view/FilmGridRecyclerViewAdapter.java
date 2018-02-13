@@ -1,4 +1,4 @@
-package com.example.martinosorio.filmgrid;
+package com.example.martinosorio.filmgrid.view;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import com.example.martinosorio.filmgrid.R;
 import com.example.martinosorio.filmgrid.databinding.FilmViewHolderLayoutBinding;
 import com.example.martinosorio.filmgrid.model.Films;
 import com.example.martinosorio.filmgrid.view.FilmViewHolder;

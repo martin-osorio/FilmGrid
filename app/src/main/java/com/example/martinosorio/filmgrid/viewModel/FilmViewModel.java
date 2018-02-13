@@ -7,8 +7,8 @@ import android.graphics.Bitmap;
 import android.widget.ImageView;
 
 import com.example.martinosorio.filmgrid.BR;
-import com.example.martinosorio.filmgrid.ImageDownloadedEvent;
-import com.example.martinosorio.filmgrid.ImageDownloader;
+import com.example.martinosorio.filmgrid.event.ImageDownloadedEvent;
+import com.example.martinosorio.filmgrid.utils.ImageDownloader;
 import com.example.martinosorio.filmgrid.model.Film;
 
 import org.greenrobot.eventbus.EventBus;

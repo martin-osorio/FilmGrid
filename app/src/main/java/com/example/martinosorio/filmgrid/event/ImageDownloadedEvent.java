@@ -1,4 +1,4 @@
-package com.example.martinosorio.filmgrid;
+package com.example.martinosorio.filmgrid.event;
 
 import android.graphics.Bitmap;
 

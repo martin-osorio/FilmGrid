@@ -1,4 +1,4 @@
-package com.example.martinosorio.filmgrid;
+package com.example.martinosorio.filmgrid.data;
 
 import com.example.martinosorio.filmgrid.model.SnagfilmsReply;
 

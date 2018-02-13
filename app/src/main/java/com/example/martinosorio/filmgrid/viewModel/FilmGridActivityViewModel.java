@@ -8,10 +8,10 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.martinosorio.filmgrid.BR;
-import com.example.martinosorio.filmgrid.FilmGridRecyclerViewAdapter;
-import com.example.martinosorio.filmgrid.FilmsDownloadedEvent;
+import com.example.martinosorio.filmgrid.view.FilmGridRecyclerViewAdapter;
+import com.example.martinosorio.filmgrid.event.FilmsDownloadedEvent;
 import com.example.martinosorio.filmgrid.R;
-import com.example.martinosorio.filmgrid.SnagfilmsController;
+import com.example.martinosorio.filmgrid.data.SnagfilmsController;
 import com.example.martinosorio.filmgrid.model.Films;
 
 import org.greenrobot.eventbus.EventBus;
