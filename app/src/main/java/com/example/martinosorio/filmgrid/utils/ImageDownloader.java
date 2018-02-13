@@ -16,10 +16,10 @@ import java.net.URL;
  */
 
 public class ImageDownloader extends AsyncTask<String, Void, Bitmap> {
-    private int position;
+    private int id;
 
-    public ImageDownloader(int position) {
-        this.position = position;
+    public ImageDownloader(int id) {
+        this.id = id;
     }
 
     protected Bitmap doInBackground(String... urls) {
@@ -35,6 +35,6 @@ public class ImageDownloader extends AsyncTask<String, Void, Bitmap> {
     }
 
     protected void onPostExecute(Bitmap result) {
-        EventBus.getDefault().post(new ImageDownloadedEvent(position, result));
+        EventBus.getDefault().post(new ImageDownloadedEvent(id, result));
     }
 }
