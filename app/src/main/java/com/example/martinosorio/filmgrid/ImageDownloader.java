@@ -16,7 +16,7 @@ import java.net.URL;
 public class ImageDownloader extends AsyncTask<String, Void, Bitmap> {
     private int position;
 
-    ImageDownloader(int position) {
+    public ImageDownloader(int position) {
         this.position = position;
     }
 

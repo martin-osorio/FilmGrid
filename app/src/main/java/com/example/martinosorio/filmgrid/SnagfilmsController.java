@@ -21,7 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class SnagfilmsController implements Callback<SnagfilmsReply> {
     private static final String BASE_URL = "http://www.snagfilms.com/apis/";
 
-    void start() {
+    public void start() {
         Gson gson = new GsonBuilder().setLenient().create();
         Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create(gson)).build();
         SnagfilmsAPI snagfilmsAPI = retrofit.create(SnagfilmsAPI.class);

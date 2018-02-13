@@ -1,4 +1,4 @@
-package com.example.martinosorio.filmgrid;
+package com.example.martinosorio.filmgrid.viewModel;
 
 import android.app.Activity;
 import android.content.Context;
@@ -7,6 +7,11 @@ import android.databinding.Bindable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.example.martinosorio.filmgrid.BR;
+import com.example.martinosorio.filmgrid.FilmGridRecyclerViewAdapter;
+import com.example.martinosorio.filmgrid.FilmsDownloadedEvent;
+import com.example.martinosorio.filmgrid.R;
+import com.example.martinosorio.filmgrid.SnagfilmsController;
 import com.example.martinosorio.filmgrid.model.Films;
 
 import org.greenrobot.eventbus.EventBus;
@@ -25,7 +30,7 @@ public class FilmGridActivityViewModel extends BaseObservable {
     private boolean progressVisibility;
     private boolean recyclerViewVisibility;
 
-    FilmGridActivityViewModel(Context context) {
+    public FilmGridActivityViewModel(Context context) {
         EventBus.getDefault().register(this);
 
         this.context = context;

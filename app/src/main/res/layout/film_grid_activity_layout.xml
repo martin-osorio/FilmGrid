@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.martinosorio.filmgrid.FilmGridActivity">
+    tools:context="com.example.martinosorio.filmgrid.view.FilmGridActivity">
 
     <data>
 
@@ -9,7 +9,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.martinosorio.filmgrid.FilmGridActivityViewModel" />
+            type="com.example.martinosorio.filmgrid.viewModel.FilmGridActivityViewModel" />
     </data>
 
     <RelativeLayout

@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 
 import com.example.martinosorio.filmgrid.databinding.FilmViewHolderLayoutBinding;
 import com.example.martinosorio.filmgrid.model.Films;
+import com.example.martinosorio.filmgrid.view.FilmViewHolder;
+import com.example.martinosorio.filmgrid.viewModel.FilmViewModel;
 
 /**
  * Created by Martin on 2/12/2018.
@@ -18,7 +20,7 @@ public class FilmGridRecyclerViewAdapter extends RecyclerView.Adapter {
     private Films films;
     private int nextID = 0;
 
-    FilmGridRecyclerViewAdapter(Context context, Films films) {
+    public FilmGridRecyclerViewAdapter(Context context, Films films) {
         this.films = films;
         layoutInflater = LayoutInflater.from(context);
     }

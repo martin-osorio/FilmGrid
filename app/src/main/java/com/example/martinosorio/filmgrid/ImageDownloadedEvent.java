@@ -6,11 +6,11 @@ import android.graphics.Bitmap;
  * Created by Martin on 2/12/2018.
  */
 
-class ImageDownloadedEvent {
+public class ImageDownloadedEvent {
     private int id;
     private Bitmap image;
 
-    ImageDownloadedEvent(int id, Bitmap image) {
+    public ImageDownloadedEvent(int id, Bitmap image) {
         this.id = id;
         this.image = image;
     }
