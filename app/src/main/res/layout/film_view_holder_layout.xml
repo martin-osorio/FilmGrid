@@ -16,19 +16,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginBottom="2dp"
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
         android:layout_marginTop="2dp"
-        android:layout_marginBottom="2dp"
         card_view:cardCornerRadius="4dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="120dp"
+            android:layout_marginBottom="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp">
+            android:layout_marginTop="5dp">
 
             <TextView
                 android:id="@+id/film_textview"
@@ -43,14 +43,15 @@
                 android:id="@+id/film_imageview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
                 android:layout_below="@id/film_textview"
                 android:layout_centerHorizontal="true"
-                android:src="@mipmap/ic_launcher"
                 android:visibility="@{viewModel.getImageVisibility}" />
 
             <ProgressBar
                 android:id="@+id/card_progressBar"
                 android:layout_width="wrap_content"
+                android:layout_below="@id/film_textview"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:visibility="@{viewModel.getProgressVisibility}" />
