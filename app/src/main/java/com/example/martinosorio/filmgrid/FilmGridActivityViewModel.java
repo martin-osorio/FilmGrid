@@ -25,7 +25,7 @@ public class FilmGridActivityViewModel extends BaseObservable {
     private boolean recyclerViewVisibility;
     private Films films;
 
-    public FilmGridActivityViewModel(Context context) {
+    FilmGridActivityViewModel(Context context) {
         EventBus.getDefault().register(this);
 
         this.context = context;

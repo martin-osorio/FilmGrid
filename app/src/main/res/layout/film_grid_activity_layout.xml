@@ -4,7 +4,9 @@
     tools:context="com.example.martinosorio.filmgrid.FilmGridActivity">
 
     <data>
-        <import type="android.view.View"/>
+
+        <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="com.example.martinosorio.filmgrid.FilmGridActivityViewModel" />

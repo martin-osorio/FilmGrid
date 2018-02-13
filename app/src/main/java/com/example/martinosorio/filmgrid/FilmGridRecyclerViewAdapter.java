@@ -31,7 +31,7 @@ public class FilmGridRecyclerViewAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        FilmViewModel viewModel = new FilmViewModel((FilmViewHolder) holder, films.getFilms().get(position), nextID++);
+        FilmViewModel viewModel = new FilmViewModel(films.getFilms().get(position), nextID++);
         ((FilmViewHolder) holder).bind(viewModel);
     }
 
