@@ -11,6 +11,6 @@ import retrofit2.http.GET;
 
 public interface SnagfilmsAPI {
 
-    @GET("films.json?limit=10")
+    @GET("films.json?limit=100")
     Call<SnagfilmsReply> getFilms();
 }
