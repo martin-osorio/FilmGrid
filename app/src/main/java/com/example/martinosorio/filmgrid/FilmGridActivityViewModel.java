@@ -2,79 +2,60 @@ package com.example.martinosorio.filmgrid;
 
 import android.app.Activity;
 import android.content.Context;
+import android.databinding.BaseObservable;
 import android.databinding.Bindable;
-import android.databinding.Observable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 
-import com.example.martinosorio.filmgrid.model.Film;
 import com.example.martinosorio.filmgrid.model.Films;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 /**
  * Created by Martin on 2/12/2018.
  */
 
-public class FilmGridActivityViewModel implements Observable {
-    static int numberOfColumns = 2;
-    Context context;
-    FilmGridRecyclerViewAdapter adapter;
-    boolean progressVisibility;
-    boolean recyclerViewVisibility;
-    Films films;
+public class FilmGridActivityViewModel extends BaseObservable {
+    private static int numberOfColumns = 2;
+    private Context context;
+    private FilmGridRecyclerViewAdapter adapter;
+    private boolean progressVisibility;
+    private boolean recyclerViewVisibility;
+    private Films films;
 
     public FilmGridActivityViewModel(Context context) {
+        EventBus.getDefault().register(this);
+
         this.context = context;
-        setProgressVisibility(false);
-        setRecyclerViewVisibility(true);
+        setProgressVisibility(true);
+        setRecyclerViewVisibility(false);
 
         SnagfilmsController controller = new SnagfilmsController();
-        controller.start(this);
+        controller.start();
     }
 
+    @Bindable
     public boolean isProgressVisibility() {
         return progressVisibility;
     }
 
     @Bindable
-    public int getProgressVisibility(){
-        return isProgressVisibility() ? View.VISIBLE : View.GONE;
-    }
-
-    public void setProgressVisibility(boolean progressVisibility) {
+    private void setProgressVisibility(boolean progressVisibility) {
         this.progressVisibility = progressVisibility;
-        synchronized(this){//TODO
-            this.notifyAll();
-        }
+        notifyPropertyChanged(BR.progressVisibility);
     }
 
+    @Bindable
     public boolean isRecyclerViewVisibility() {
         return recyclerViewVisibility;
     }
 
     @Bindable
-    public int getRecyclerViewVisibility(){
-        return isRecyclerViewVisibility() ? View.VISIBLE : View.GONE;
-    }
-
-    public void setRecyclerViewVisibility(boolean recyclerViewVisibility) {
+    private void setRecyclerViewVisibility(boolean recyclerViewVisibility) {
         this.recyclerViewVisibility = recyclerViewVisibility;
-        synchronized(this){//TODO
-            this.notifyAll();
-        }
-    }
-
-    @Override
-    public void addOnPropertyChangedCallback(OnPropertyChangedCallback onPropertyChangedCallback) {
-        //TODO
-    }
-
-    @Override
-    public void removeOnPropertyChangedCallback(OnPropertyChangedCallback onPropertyChangedCallback) {
-        //TODO
+        notifyPropertyChanged(BR.recyclerViewVisibility);
     }
 
     private void setupRecyclerView(){
@@ -88,8 +69,9 @@ public class FilmGridActivityViewModel implements Observable {
         setProgressVisibility(false);
     }
 
-    public void onFilmsFetched(Films films){
-        this.films = films;
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onFilmsDownloadedEvent(FilmsDownloadedEvent event) {
+        this.films = event.films;
         setupRecyclerView();
     }
 }

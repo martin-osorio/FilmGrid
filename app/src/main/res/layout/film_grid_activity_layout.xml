@@ -4,7 +4,7 @@
     tools:context="com.example.martinosorio.filmgrid.FilmGridActivity">
 
     <data>
-
+        <import type="android.view.View"/>
         <variable
             name="viewModel"
             type="com.example.martinosorio.filmgrid.FilmGridActivityViewModel" />
@@ -12,19 +12,19 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="@{viewModel.getRecyclerViewVisibility}" />
+            android:visibility="@{viewModel.recyclerViewVisibility ? View.VISIBLE : View.GONE}" />
 
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:visibility="@{viewModel.getProgressVisibility}" />
+            android:visibility="@{viewModel.progressVisibility ? View.VISIBLE : View.GONE}" />
     </RelativeLayout>
 </layout>

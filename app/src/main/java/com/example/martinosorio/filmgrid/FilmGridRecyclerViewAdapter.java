@@ -16,7 +16,7 @@ import com.example.martinosorio.filmgrid.model.Films;
 public class FilmGridRecyclerViewAdapter extends RecyclerView.Adapter {
     private LayoutInflater layoutInflater;
     private Films films;
-    int nextID = 0;
+    private int nextID = 0;
 
     FilmGridRecyclerViewAdapter(Context context, Films films) {
         this.films = films;
