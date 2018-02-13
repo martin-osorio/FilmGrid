@@ -1,8 +1,8 @@
 package com.example.martinosorio.filmgrid.model;
 
-import java.util.List;
-
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
 
 /**
  * Created by Martin on 2/12/2018.

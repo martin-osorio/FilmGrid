@@ -43,6 +43,11 @@ public class FilmViewModel extends BaseObservable {
         }
     }
 
+    @BindingAdapter("imageBitmap")
+    public static void loadImage(ImageView imageView, Bitmap image) {
+        imageView.setImageBitmap(image);
+    }
+
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onImageDownloadedEvent(ImageDownloadedEvent event) {
         if (this.id == event.getId()) {
@@ -50,11 +55,6 @@ public class FilmViewModel extends BaseObservable {
             setImageVisible(true);
             setProgressVisible(false);
         }
-    }
-
-    @BindingAdapter("imageBitmap")
-    public static void loadImage(ImageView imageView, Bitmap image) {
-        imageView.setImageBitmap(image);
     }
 
     @Bindable
